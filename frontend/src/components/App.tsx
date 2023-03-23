@@ -3,7 +3,6 @@ import { FC, useEffect } from "react";
 import socket from "../socket";
 
 const App: FC<unknown> = () => {
-
   useEffect(() => {
     const onConnect = () => {
       console.log("Client has connected...");
@@ -22,15 +21,7 @@ const App: FC<unknown> = () => {
     };
   }, []);
 
-  const someEvent = () => {
-    socket.emit("some", "hello");
-  };
-
-  return (
-    <>
-
-    </>
-  );
+  return <></>;
 };
 
 export default App;
