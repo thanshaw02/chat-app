@@ -1,3 +1,4 @@
+import React from "react"; // not using this import, purely to remove the "'React' must be in scope when using JSX  react/react-in-jsx-scope" error
 import { FC, useEffect } from "react";
 import socket from "../socket";
 
@@ -12,22 +13,24 @@ const App: FC<unknown> = () => {
       console.log("Client has disconnected...");
     };
 
-    const onSomeEvent = (foo: any) => {
-      console.log(`Some event has happened: ${foo}`);
-    };
-
     socket.on("connect", onConnect);
     socket.on("disconnect", onDisconnect);
-    socket.on("some", onSomeEvent);
 
     return () => {
       socket.off("connect", onConnect);
       socket.off("disconnect", onDisconnect);
-      socket.off("some", onSomeEvent);
     };
   }, []);
 
-  return <>Under Construction</>;
+  const someEvent = () => {
+    socket.emit("some", "hello");
+  };
+
+  return (
+    <>
+
+    </>
+  );
 };
 
 export default App;
