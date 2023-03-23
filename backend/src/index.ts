@@ -1,5 +1,7 @@
-import app from "./app/app";
+import server from "./app/app";
 
-app.listen(8000, () => {
-  return console.log('Express is listening at "http://localhost:8000"');
+const PORT = 8000;
+
+server.listen(PORT, () => {
+  console.log(`⚡️[server]: Server is running at https://localhost:${PORT}`);
 });
