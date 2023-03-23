@@ -2,10 +2,12 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node dist/app.js",
+    "start": "tsc && node dist/index.js",
+    "start:nodemon": "nodemon",
+    "build": "npx tsc",
     "format": "npx prettier . --write",
     "lint": "eslint . --ext .ts"
   },
@@ -18,9 +20,12 @@
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
     "eslint": "^8.36.0",
+    "nodemon": "^2.0.22",
     "typescript": "^5.0.2"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "@types/socket.io": "^3.0.2",
+    "express": "^4.17.1",
+    "socket.io": "^4.6.1"
   }
 }
