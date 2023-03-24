@@ -11,10 +11,12 @@ import ChatMessage from "../models/chatMessage";
 
 
 type ViewMessagesProps = {
+  clientId: string;
   chatMessages: Array<ChatMessage>;
 };
 
 const ViewMessagesComponent: FC<ViewMessagesProps> = ({
+  clientId,
   chatMessages
 }) => {
 
@@ -22,7 +24,11 @@ const ViewMessagesComponent: FC<ViewMessagesProps> = ({
     <List>
       {chatMessages.map((m, index) => (
         <ListItem key={index}>
-          <ListItemText primary={<Typography variant="subtitle2">{m.message}</Typography>}/>
+          {clientId === m.id ? (
+            <ListItemText sx={{ textAlign: "right" }} primary={<Typography variant="subtitle2">{m.message}</Typography>}/>
+          ) : (
+            <ListItemText primary={<Typography variant="subtitle2">{m.message}</Typography>}/>
+          )}
         </ListItem>
       ))}
     </List>
